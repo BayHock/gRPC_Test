@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcServer";
+
+package railway;
+
+import "google/protobuf/empty.proto";
+
+service Train {
+	rpc GetListPath(google.protobuf.Empty) returns (WagonListReply);
+}
+
+message WagonReply {
+	int32 id = 1;
+	string asuNumber = 2;
+	int32 idPark = 3;
+}
+
+message WagonListReply {
+	repeated WagonReply wagons = 1;
+}
